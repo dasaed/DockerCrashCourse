@@ -1,0 +1,13 @@
+# General Docker Notes
+
+## Check the docker daemon is running ##
+service dockerd status
+
+## Check docker containers ##
+docker ps
+
+## pull image ##
+
+docker pull [image]
+docker pull nginx
+
