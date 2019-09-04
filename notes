@@ -4,10 +4,27 @@
 service dockerd status
 
 ## Check docker containers ##
-docker ps
+*Either option will work
+	docker ps
+	docker container ls
 
 ## pull image ##
 
 docker pull [image]
 docker pull nginx
+
+## list images ##
+
+docker images
+
+## Run an image ##
+
+docker run [image]:[version]
+docker run nginx:latest 
+docker run -d nginx:latest
+	-d = detached mode -> basically, in background
+
+### Exposing ports with docker ###
+# A host 
+
 
