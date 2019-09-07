@@ -1,4 +1,4 @@
- General Docker Notes
+# General Docker Notes
 
 ## Check the docker daemon is running ##
 service dockerd status
@@ -28,7 +28,7 @@ docker ps --format="ID\t{{.ID}}\nNAME\t{{.Names}}"
 
 
 ## pull image ##
-
+/* kind of like a git clone */
 docker pull [image]
 docker pull nginx
 
@@ -65,4 +65,22 @@ docker rm $(docker ps -aq) ==> removes all containers
 	* -f will forcefully remove the containers
 
 ## naming the containers ##
+
 docker run --name website -d -p 8080:80 -p 3000:80 nginx:latest
+
+
+## Formating output of docker ps ##
+
+export myFormat="ID\t{{.ID}} \nNAME\t{{.Names}} \nIMAGE\t{{.Image}} \nPORTS\t{{.Ports}} \nCOMMAND\t{{.Command}} \nCREATED\t{{.CreatedAt}} \nSTATUS\t{{.Status}}\n"
+docker ps --format="${myFormat}"
+
+## VOLUMES ##
+Allows for the sharing of data(Files and Folders)
+	* Between host and container
+	* Between multiple containers
+	
+The standard syntax is:
+	docker run --name some-container -v [/host/mount/point]:[/container/file/system]:[permisions(ro,rw,etc)] -d [container]
+	docker run --name nginxWithFS -v /home/dasaed/github/DockerCrashCourse/dockerfs:/usr/share/nginx/html:ro -d nginx:latest
+	
+
