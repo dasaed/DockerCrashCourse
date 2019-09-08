@@ -45,9 +45,9 @@ docker run -d nginx:latest
 
 ## Stopping a running Docker ##
 
-docker stop [CONTAINER_ID]
+docker stop [CONTAINER-ID]
 	CONTAINER_ID = can be found with "docker ps"
-docker stop [CONTAINER_NAME]
+docker stop [CONTAINER-NAME]
         CONTAINER_NAME = can be found with "docker ps"
 
 ### Exposing ports with docker ###
@@ -59,7 +59,7 @@ docker run -d -p 8080:80 -p 3000:80 nginx:latest
 
 ## removing a container ##
 
-docker rm CONTAINER_ID  ==> removes one container
+docker rm [CONTAINER-ID]  ==> removes one container
 docker rm $(docker ps -aq) ==> removes all containers
 	* Containers can only be removed if they are stopped
 	* -f will forcefully remove the containers
@@ -82,5 +82,16 @@ Allows for the sharing of data(Files and Folders)
 The standard syntax is:
 	docker run --name some-container -v [/host/mount/point]:[/container/file/system]:[permisions(ro,rw,etc)] -d [container]
 	docker run --name nginxWithFS -v /home/dasaed/github/DockerCrashCourse/dockerfs:/usr/share/nginx/html:ro -d nginx:latest
+
+permisions
+	* ro = read only
+	* [blank i.e. don't put anything] read and write
+
+### Sharing volumes between dockers(containers) ###
+docker run --name website-copy -d -p 8081:80 --volumes-from website nginx:latest
 	
+## run a bash terminal from within the docker ##
+
+docker exec -it website bash
+
 
