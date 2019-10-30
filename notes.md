@@ -41,15 +41,21 @@ docker images
 ## Run an image ##
 
 docker run [image]:[version]
+
 docker run nginx:latest 
+
 docker run -d nginx:latest
+
 	-d = detached mode -> basically, in background
 
 ## Stopping a running Docker ##
 
 docker stop [CONTAINER-ID]
+
 	CONTAINER_ID = can be found with "docker ps"
+	
 docker stop [CONTAINER-NAME]
+
         CONTAINER_NAME = can be found with "docker ps"
 
 ### Exposing ports with docker ###
