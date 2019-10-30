@@ -29,7 +29,9 @@ docker ps --format="ID\t{{.ID}}\nNAME\t{{.Names}}"
 
 ## pull image ##
 /* kind of like a git clone */
+
 docker pull [image]
+
 docker pull nginx
 
 ## list images ##
