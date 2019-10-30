@@ -7,7 +7,7 @@ service dockerd status
 *Either option will work
 	docker ps
 	docker container ls
-'''
+```
 		docker ps --help
 		Usage:	docker ps [OPTIONS]
 		List containers
@@ -21,7 +21,7 @@ service dockerd status
 		      --no-trunc        Don't truncate output
 		  -q, --quiet           Only display numeric IDs
 		  -s, --size            Display total file sizes
-'''
+```
 docker ps -a
 ### Formatting the docker ps output ###
 docker ps --format="ID\t{{.ID}}\nNAME\t{{.Names}}"
